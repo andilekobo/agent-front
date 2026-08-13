@@ -26,30 +26,16 @@ textarea {
 .background {
   position: fixed;
   inset: 0;
-
-  background:
-    linear-gradient(
-      rgba(8, 18, 16, 0.65),
-      rgba(8, 18, 16, 0.78)
-    ),
-    radial-gradient(
-      circle at 20% 20%,
-      #55745f,
-      transparent 30%
-    ),
-    radial-gradient(
-      circle at 80% 20%,
-      #2e5142,
-      transparent 30%
-    ),
-    linear-gradient(
-      135deg,
-      #52675b,
-      #1d342d 50%,
-      #18251f
-    );
-
   z-index: -2;
+
+  background-image: linear-gradient(
+      rgba(8, 18, 16, 0.55),
+      rgba(8, 18, 16, 0.72)
+    ),
+    url('/R (1).jfif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 /* Subtle grid */
@@ -142,6 +128,21 @@ textarea {
   padding-top: 85px;
 }
 
+.agent-header {
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.06em;
+  margin-bottom: 8px;
+}
+
+.agent-subtitle {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 26px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 /* Badge */
 
 .badge {
@@ -195,24 +196,23 @@ textarea {
 /* Agent box */
 
 .agent-box {
-  width: min(800px, 100%);
+  width: min(760px, 100%);
 
   margin: auto;
 
-  padding: 20px;
+  padding: 14px 14px 12px;
 
-  min-height: 205px;
+  min-height: 160px;
 
-  border-radius: 18px;
+  border-radius: 16px;
 
-  background: rgba(70, 78, 68, 0.6);
+  background: rgba(66, 74, 67, 0.5);
 
-  border: 1px solid rgba(255,255,255,0.25);
+  border: 1px solid rgba(255,255,255,0.18);
 
-  backdrop-filter: blur(18px);
+  backdrop-filter: blur(12px);
 
-  box-shadow:
-    0 20px 50px rgba(0,0,0,0.25);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
 
   text-align: left;
 }
@@ -220,7 +220,7 @@ textarea {
 .agent-box textarea {
   width: 100%;
 
-  height: 115px;
+  height: 90px;
 
   resize: none;
 
@@ -231,13 +231,21 @@ textarea {
 
   color: white;
 
-  font-size: 18px;
+  font-size: 17px;
 
   line-height: 1.5;
 }
 
 .agent-box textarea::placeholder {
   color: white;
+}
+
+.powered-by {
+  margin-top: 12px;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  letter-spacing: 0.04em;
 }
 
 /* Controls */
@@ -329,40 +337,24 @@ textarea {
 
 .trusted {
   text-align: center;
-
   margin-top: 75px;
-
   padding-bottom: 60px;
 }
 
-.trusted h2 {
-  font-size: 20px;
-
-  margin-bottom: 45px;
-
-  font-weight: 500;
-}
-
-.companies {
+.brand-row {
   display: flex;
-
-  justify-content: space-between;
-
+  justify-content: center;
   align-items: center;
-
-  gap: 30px;
-
-  overflow: hidden;
-
-  color: rgba(255,255,255,0.9);
+  gap: 32px;
+  flex-wrap: wrap;
+  color: rgba(255, 255, 255, 0.9);
 }
 
-.companies span {
+.brand-row span {
   white-space: nowrap;
-
   font-size: 20px;
-
   font-weight: 600;
+  letter-spacing: -0.04em;
 }
 
 /* Responsive */
