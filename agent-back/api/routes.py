@@ -1,40 +1,26 @@
-from fastapi import APIRouter
-from pydantic import BaseModel
+from fastapi import APIRouter, HTTPException
+from models.schemas import AgentRequest
+from agent.agent import talk_to_claude
+import logging
 
 router = APIRouter()
 
-
-class AgentRequest(BaseModel):
-    message: str
-
-
-@router.get("/")
-def root():
-    return {"message": "CareerOps API is running"}
-
-
-@router.get("/health")
-def health():
-    return {"status": "healthy"}
+logger = logging.getLogger("careerops")
 
 
 @router.post("/agent")
-def agent(request: AgentRequest):
-    return {
-        "response": f"CareerOps received: {request.message}"
-    }
+def agent_endpoint(request: AgentRequest):
+    try:
+        response = talk_to_claude(request.message)
 
+        return {
+            "response": response
+        }
 
-@router.get("/jobs")
-def get_jobs():
-    return {
-        "jobs": []
-    }
+    except Exception as e:
+        logger.exception("CareerOps agent failed")
 
-
-@router.get("/jobs/{job_id}")
-def get_job(job_id: int):
-    return {
-        "job_id": job_id,
-        "message": "Job details will be added later"
-    }
+        raise HTTPException(
+            status_code=500,
+            detail=str(e)
+        )
